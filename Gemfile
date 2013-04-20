@@ -14,7 +14,6 @@ end
 
 group :test do
   gem "rack-test", "~> 0.5"
-  gem "json"
   gem "minitest"
   gem "sinatra"
   gem "capybara", "~> 2.0.3"
