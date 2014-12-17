@@ -7,17 +7,19 @@
     <dt>Worker</dt>
     <dd>
       <a href="<%= u(:workers, job['worker']) %>"><%= job['worker'].split(':')[0...2].join(':') %></a> on <b class='queue-tag'><%= job['queue'] %></b > at <b><span class="time"><%= Time.parse(job['failed_at']).strftime(failed_date_format) %></span></b>
-      <% if job['retried_at'] %>
-        <div class='retried'>
-          Retried <b><span class="time"><%= Time.parse(job['retried_at']).strftime(failed_date_format) %></span></b>
-          <a href="<%= u "failed/remove/#{id}" %>" class="remove" rel="remove">Remove</a>
-        </div>
-      <% else %>
-        <div class='controls'>
-          <a href="<%= u "failed/requeue/#{id}" %>" rel="retry">Retry</a>
-          or
-          <a href="<%= u "failed/remove/#{id}" %>" rel="remove">Remove</a>
-        </div>
+      <% if false %>
+        <% if job['retried_at'] %>
+          <div class='retried'>
+            Retried <b><span class="time"><%= Time.parse(job['retried_at']).strftime(failed_date_format) %></span></b>
+            <a href="<%= u "failed/remove/#{id}" %>" class="remove" rel="remove">Remove</a>
+          </div>
+        <% else %>
+          <div class='controls'>
+            <a href="<%= u "failed/requeue/#{id}" %>" rel="retry">Retry</a>
+            or
+            <a href="<%= u "failed/remove/#{id}" %>" rel="remove">Remove</a>
+          </div>
+        <% end %>
       <% end %>
     </dd>
     <dt>Class</dt>
